@@ -1,6 +1,6 @@
 import '../style/comment.scss';
 
-export default function Comment() {
+export default function Comment({ confirmArray }) {
     return (
         <div className="comment">
 
@@ -9,11 +9,17 @@ export default function Comment() {
                 <div>Mesajınız</div>
             </div>
 
-            <div className='data'>
-                <div>Emre Mert</div>
-                <div>İlk Mesaj</div>
-            </div>
-            
+            {confirmArray && confirmArray.map((item, index) => {
+                return (
+                    <div className='data' key={index + 1}>
+                        <div>{item.nameSurname}</div>
+                        <div>{item.message}</div>
+                    </div>
+                )
+            })}
+
+
+
         </div>
     );
 }

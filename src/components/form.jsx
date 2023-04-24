@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import '../style/form.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Form({ formData, setFormData, formArray, setFormArray }) {
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setFormData({ ...formData, [e.target.name]: e.target.value, id: uuidv4() })
     }
 
     useEffect(() => { console.log(formArray); }, [formArray])
